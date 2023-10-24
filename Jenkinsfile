@@ -68,23 +68,7 @@ pipeline {
 				sh "docker push zeehan0133/bankapp-zee-app:V${BUILD_NUMBER}"
 			}
 		}
-		stage('Approve - Deployment'){
-            steps{
-                
-                //----------------send an approval prompt-------------
-                script {
-                   env.APPROVED_DEPLOY = input message: 'User input required Choose "Yes" | "Abort"'
-                       }
-                //-----------------end approval prompt------------
-            }
-        }
-		stage('Deploy to Kubernetes_Cluster') {
-			steps {
-				script {
-				    sshPublisher(publishers: [sshPublisherDesc(configName: 'Kubernetes', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'kubectl apply -f k8smvndeployment.yaml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '*.yaml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
-				}
-			}
-		}
+		
     }
 }	
     
