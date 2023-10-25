@@ -35,7 +35,7 @@ pipeline {
                 sh 'docker version'
                 sh "docker build -t zeehan0133/bankapp-zee-app:V${BUILD_NUMBER} ."
                 sh 'docker image list'
-                //sh "docker tag zeehan0133/bankapp-zee-app:V${BUILD_NUMBER} zeehan0133/bankapp-zee-app:latest"
+                sh "docker tag zeehan0133/bankapp-zee-app:V${BUILD_NUMBER} zeehan0133/bankapp-zee-app:latest"
             }
             post {
                 success {
