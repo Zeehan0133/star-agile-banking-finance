@@ -33,9 +33,9 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh 'docker version'
-                sh "docker build -t zeehan0133/bankapp-zee-app:V${BUILD_NUMBER} ."
+                sh "docker build -t zeehan0133/bankapp-zee-app1:V${BUILD_NUMBER} ."
                 sh 'docker image list'
-                sh "docker tag zeehan0133/bankapp-zee-app:V${BUILD_NUMBER} zeehan0133/bankapp-zee-app:latest"
+                sh "docker tag zeehan0133/bankapp-zee-app1:V${BUILD_NUMBER} zeehan0133/bankapp-zee-app1:latest"
             }
             post {
                 success {
@@ -67,7 +67,7 @@ pipeline {
 
         stage('Publish to Docker Registry') {
             steps {
-                sh "docker push zeehan0133/bankapp-zee-app:latest"
+                sh "docker push zeehan0133/bankapp-zee-app1:latest"
             }
         }
 
