@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: bankapp-zee-container
-        image: zeehan0133/bankapp-zee-app:latest
+        image: zeehan0133/bankapp-zee-app
         ports:
         - containerPort: 8081
 ---
