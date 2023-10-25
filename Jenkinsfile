@@ -67,7 +67,7 @@ pipeline {
 
         stage('Publish to Docker Registry') {
             steps {
-                sh "docker push zeehan0133/bankapp-zee-app:V${BUILD_NUMBER}"
+                sh "docker push zeehan0133/bankapp-zee-app:latest"
             }
         }
 
