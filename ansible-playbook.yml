@@ -8,9 +8,16 @@
 
   - name : Install Docker
     command : sudo apt-get install -y docker.io
+    become : yes
+    become_user : root
 
   - name : Start Docker Service
     command : sudo systemctl start docker
-
+    become : yes
+    become_user : root
+  #- name : stop existing containers
+   # shell: docker stop $(docker ps -a -q)
+  #- name : delete all containers
+   # shell: docker rm $(docker ps -a -q)
   - name: Deploy Docker Container
     command: docker run -itd -p 8084:8081 zeehan0133/bankapp-zee-app1:latest
